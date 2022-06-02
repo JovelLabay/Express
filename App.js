@@ -1,20 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// REACT
+import React, { useEffect } from "react";
+
+// NAVIGATION WRAPPER
+import { NavigationContainer } from "@react-navigation/native";
+
+// LOCAL FUNCTIONS
+import { chageNavigationBar } from "./functions/navigationBar";
+
+// AUTHENTICATION COMPONENT
+import AuthScreen from "./src/layouts/AuthScreen";
+
+// FONTS
+import { useFonts } from "expo-font";
+
+import { prolongSplash, showScreen } from "./functions/splashScreen";
 
 export default function App() {
+  // FONTS
+  const [loaded] = useFonts({
+    ExtraBold: require("./assets/fonts/Inter-ExtraBold.ttf"),
+  });
+
+  if (!loaded) {
+    prolongSplash();
+  } else {
+    showScreen();
+  }
+
+  // CHANGE NAVIVAGTION BAR
+  useEffect(() => {
+    chageNavigationBar();
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <AuthScreen />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
