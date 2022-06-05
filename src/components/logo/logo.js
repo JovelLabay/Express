@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { fontSizes, colors } from "../../../styles/styles";
+import { fontSizes, colors, fontWeights } from "../../../styles/styles";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.2,
+    flex: 0.5,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   logoName: {
     fontSize: fontSizes.logoTitle,
     color: colors.brandColor,
-    fontFamily: "ExtraBold",
+    fontWeight: fontWeights.extraBold,
   },
 });
 

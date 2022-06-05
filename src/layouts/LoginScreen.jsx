@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StatusBar, StyleSheet } from "react-native";
 
-import { colors } from "../../styles/styles";
+import { colors, borderWidths } from "../../styles/styles";
 
 import {
   createStackNavigator,
@@ -19,8 +19,8 @@ export default function LoginScreen() {
     <View style={styles.loginScreenContainer}>
       <AuthStack.Navigator
         screenOptions={{
-          headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          headerShown: false,
         }}
       >
         <AuthStack.Screen name="Login" component={Login} />
